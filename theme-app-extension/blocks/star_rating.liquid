@@ -1,0 +1,35 @@
+{% assign product = block.settings.product %}
+{% assign product_rating = product.metafields.rating.star_rating %}
+{% assign color = block.settings.color %}
+{% assign shop_name = shop.name %}
+
+<span style="color: {{ color }}">Product title: {{ product.title }}</span> <br>
+Shop name: {{ shop_name }} <br>
+Star rating: 5<br>
+
+{% for product in collection.products %}
+    <h1>{{ product.title }}</h1>
+{% else %}
+    <p>The collection is empty</p>
+{% endfor %}
+
+{% schema %}
+{
+    "name": "Star Rating",
+    "target": "section",
+    "settings": [
+        {
+            "type": "product",
+            "id": "product",
+            "label": "Current product",
+            "autofill": true
+        },
+        {
+            "type": "color",
+            "id": "color",
+            "label": "Star color",
+            "default": "#ff0000"
+        }
+    ]
+}
+{% endschema %}
