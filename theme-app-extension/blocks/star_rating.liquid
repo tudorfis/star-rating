@@ -6,6 +6,19 @@
 <span style="color: {{ color }}">Product title: {{ product.title }}</span> <br>
 Shop name: {{ shop_name }} <br>
 Star rating: 5<br>
+<br>
+
+Custom product: {{ all_products['650c-micro-wheelset'].description | slice: 0, 50 }}...<br>
+<br>
+
+{{ "adam!" | capitalize | prepend: "Hello " }}
+<br><br>
+
+{% assign beatles = "John|Paul|George|Ringo" | split: "|" %}
+
+{% for member in beatles %}
+  <p>{{ member }}</p>
+{% endfor %}
 
 {% for product in collection.products %}
     <h1>{{ product.title }}</h1>
